@@ -1,0 +1,44 @@
+body {
+  background-image: 
+  linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)),
+  url("/images/armario3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+h2{
+  color: #E5BDA2;
+}
+
+.formulario{
+  border-radius: 1rem;
+  background-color: #E5BDA2;
+  opacity: 0.8;
+  margin-top: 2rem;
+  color: black;
+
+  .vuelta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, textarea {
+    background-color: #E5BDA2;
+    border-radius: 10px;
+    border: 2px solid black;
+  }
+
+  button {
+    border: none;
+    padding: 0.3rem 1.7rem;
+    border-radius: 1rem;
+    background-color: #897474;
+    color: #E5BDA2;
+  
+    &:hover {
+      /* filter: brightness(1.2); */
+      background-color: white;
+      color: black;
+    }
+  }
+}

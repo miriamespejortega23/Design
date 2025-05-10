@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <%- include('modules/link.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+  </head>
+  <body>
+    <%- include('modules/navbar.ejs') %>
+    <main>
+      <section class="section1">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-md-6 design">
+              <h1>DesignMe</h1>
+              <a href="#sobreNosotros" class="boton">Sobre Nosotros</a>
+            </div>
+            <div class="col-12 col-md-6 fondo-negro">
+              <img src="/images/home2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section2">
+        <div class="container-xxl">
+          <h2 class="text-center pt-5">Nuestros diseñadores</h2>
+          <div class="row d-flex flex-wrap gap-5 p-5 justify-content-center">
+            <% result.forEach((elem) => { %>
+              <div class="col-12 col-md-3 tarjeta p-4 mb-5 text text-center">
+                <img class="pb-2" src="/images/designers/<%= elem.designer_img?elem.designer_img:'default.jpg' %>" alt="">
+                <div>
+                  <p class="fw-bold"><%= elem.name %> <%= elem.last_name %></p>
+                  <p><span class="fw-bold">email de contacto:</span> <%= elem.email %></p>
+                </div>
+                <div>
+                  <button onclick="window.location.href='/designer/profile/<%= elem.designer_id %>'">Conocer más</button>
+                </div>
+              </div>
+            <%  }) %>
+          </div>
+        </div>
+      </section>
+      <section id="sobreNosotros" class="section3">
+        <div class="container-xxl">
+          <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-6 about">
+              <h2 class="pb-2">Sobre Nosotros</h2>
+              <p>
+                Hola, ¡bienvenidos a nuestro rincón de moda!
+              </p>
+              
+              <p class="gris">
+                Somos un equipo apasionado por el diseño, el estilo y la creatividad. Esta página nació de la idea de compartir nuestra visión de la moda como una forma de arte, expresión y personalidad. Aquí vas a encontrar diseños únicos, bocetos con alma y mucha inspiración para vestir como realmente eres.
+              </p>
+
+              <p class="gris">
+                No seguimos todas las reglas, pero sí seguimos el corazón en cada trazo, costura y propuesta. Ya seas diseñador, amante del buen vestir o simplemente alguien que disfruta ver ideas frescas, este es tu lugar.
+              </p>
+
+              <p class="gris">Gracias por visitarnos.</p>  
+            </div>
+            <div class="col-10 col-md-5 imagen">
+              <img src="/images/about.jpg" alt="">
+              <div class="cuadro"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section4">
+        <div class="container-xxl">
+          <div class="row g-5">
+            <div class="col-12 col-md-6 img">
+              <img src="/images/contactanos.jpg" alt="">
+            </div>
+            <div class="col-12 col-md-5 contactanos">
+              <h2>Contáctanos</h2>
+              <div class="iconos">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <h3>Número de contacto</h3>
+              </div>
+              <p>634794535 o 978436843</p>
+              <div class="iconos">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                <h3>Ubicación</h3>
+              </div>
+              <p>Paseo de los Tilos nº45, Cruz de Humilladero, 29006 Málaga, España</p>
+              <div class="iconos">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+                <h3>Horas de atención al cliente</h3>
+              </div>
+              <p>Lunes - Viernes / 10:00h - 20:00h</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+  </body>
+</html>

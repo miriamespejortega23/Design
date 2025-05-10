@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <%- include('modules/link.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/designerProfile.css">
+  </head>
+  <body>
+    <!-- <%- include('modules/navbar.ejs') %> -->
+     <header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col navbar">
+              <a href="/">Home</a>
+            <div>
+              <button onclick="window.location.href='/designer/registerForm'">Register</button>
+              <button onclick="window.location.href='/designer/formLogin'">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     </header>
+    <main>
+      <section class="section1">
+        <div class="container-xxl">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+              <img src="/images/designers/<%= finalResult.designer_img?finalResult.designer_img:'default.jpg' %>" alt="">
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-center align-items-center perfil">
+              <h3><%= finalResult.name %> <%= finalResult.last_name %></h3>
+              <p><%= finalResult.city %></p>
+              <p><%= finalResult.phone_number %></p>
+              <p><%= finalResult.email %></p>
+              <p><%= finalResult.description %></p>
+              <button class="mb-3" onclick="window.location.href='/design/formCreateDesign/<%= finalResult.designer_id %>'">Añadir nuevo diseño</button>
+              <button onclick="window.location.href='/'">Volver</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section2">
+        <div class="container-xxl">
+          <h2 class="text-center pt-5">Los diseños de <%= finalResult.name %> <%= finalResult.last_name %></h2>
+          <div class="row py-5 g-5">
+                <% finalResult.designs.forEach((elem) => { %>
+                  <div class="col-12 col-md-4 foto">
+                    <img src="/images/designs/<%= elem.design_img?elem.design_img:'default.jpg' %>" alt="">
+                  </div>
+                  <div class="col-12 col-md-8 align-content-end info">
+                    <div class="borde p-4">
+                      <p class="pt-5"><span>Nombre:</span> <%= elem.design_name %></p>
+                      <p><span>Orientado a:</span> <%= elem.orientation %></p>
+                      <p><span>Tipo de tela:</span> <%= elem.clothing_fabric %></p>
+                      <p><span>Tipo de prenda:</span> <%= elem.type_of_clothing %></p>
+                      <p><span>Color principal:</span> <%= elem.color %></p>
+                      <p><span>Descripcion del producto:</span> <%= elem.design_description %></p>
+                      <div class="boton d-flex gap-3 pb-5">
+                        <button onclick="window.location.href='/design/formEditDesign/<%= elem.design_id %>'">Editar</button>
+                        <button onclick="window.location.href='/design/delTotalDesign/<%= finalResult.designer_id %>/<%= elem.design_id %>'">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+                <%  }) %>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+  </body>
+</html>

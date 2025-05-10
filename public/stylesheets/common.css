@@ -1,0 +1,41 @@
+*{
+  font-style: italic;
+}
+
+header{
+  background-color: /* #D9B0B1 */ #E5BDA2;
+  height: 7vh;
+
+  .navbar {
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.25rem;
+    
+    a{
+      text-decoration: none;
+      color: /* white */ black;
+
+      &:hover{
+        color: rgb(78, 64, 64);
+      }
+    }
+
+    button{
+      border-radius: 1rem;
+      padding: 0.3rem 1.7rem;
+      color: blacks;
+      background-color: transparent;
+      border: none;
+      font-style: italic;
+
+      &:hover{
+        background-color: white;
+        color: rgb(78, 64, 64);
+      }
+    }
+  }
+}
+
+
